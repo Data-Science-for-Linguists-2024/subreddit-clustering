@@ -17,5 +17,5 @@ for i in range(1, args.num_pages + 1):
 if args.output is None:
     print("\n".join(result))
 else:
-    with open(args.output, "w") as f:
+    with open(args.output, "w", newline="\n") as f:
         f.write("\n".join(result))
