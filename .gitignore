@@ -9,3 +9,5 @@ Thumbs.db
 desktop.ini
 #------------------ directories to ignore
 private/
+#------------------ just in case i accidentally move this file
+reddit_private.json

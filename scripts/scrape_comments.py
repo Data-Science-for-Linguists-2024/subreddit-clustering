@@ -24,7 +24,7 @@ reddit = praw.Reddit(
     password=reddit_private["password"],
 )
 
-for sub_name in tqdm(sub_list[:10], position=0):
+for sub_name in tqdm(sub_list[:1000], position=0):
     # skip over ones that were scrapped in a previous session
     if sub_name in comment_data:
         continue
@@ -39,10 +39,10 @@ for sub_name in tqdm(sub_list[:10], position=0):
         post.comments.replace_more(limit=0)
         # this only gets top level comments
         # also ignores automoderator since it tends to leave the same comment on every post and i don't want that in my data
-        comments.append("\n".join(
-            [comment.body for comment in post.comments if comment.author != "AutoModerator"]))
+        comments.extend(
+            [comment.body for comment in post.comments if comment.author != "AutoModerator"])
 
-    comment_data[sub_name] = "\n".join(comments)
+    comment_data[sub_name] = comments
 
     # save per iteration just to be safe
     with open("../private/comment_data.json", "w") as f:
