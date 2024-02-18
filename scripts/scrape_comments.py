@@ -24,7 +24,7 @@ reddit = praw.Reddit(
     password=reddit_private["password"],
 )
 
-for sub_name in tqdm(sub_list[:1000], position=0):
+for sub_name in tqdm(sub_list, position=0):
     # skip over ones that were scrapped in a previous session
     if sub_name in comment_data:
         continue
