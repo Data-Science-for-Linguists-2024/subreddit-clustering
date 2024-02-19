@@ -11,10 +11,12 @@ with open("../private/top_subreddits.txt", "r") as f:
 
 # use existing comment data if it exists
 # this is so i don't have to rerun the script in its entirety if i have to stop it unexpectedly
-comment_data = {}
+comment_data = []
+visited = set()
 if os.path.exists("../private/comment_data.json"):
     with open("../private/comment_data.json", "r") as f:
         comment_data = json.load(f)
+        visited = set([comment["subreddit"] for comment in comment_data])
 
 reddit = praw.Reddit(
     client_id=reddit_private["client_id"],
@@ -24,25 +26,27 @@ reddit = praw.Reddit(
     password=reddit_private["password"],
 )
 
-for sub_name in tqdm(sub_list, position=0):
+for sub_name in tqdm(sub_list[:100], position=0):
     # skip over ones that were scrapped in a previous session
-    if sub_name in comment_data:
+    if sub_name in visited:
         continue
 
     # grab the top 10 posts of the past year
     num_posts = 10
     posts = reddit.subreddit(sub_name).top(limit=num_posts, time_filter="year")
 
-    comments = []
     for post in tqdm(posts, position=1, leave=False, total=num_posts, desc=f"r/{sub_name}"):
         # get rid of the weird non-comment objects
         post.comments.replace_more(limit=0)
         # this only gets top level comments
         # also ignores automoderator since it tends to leave the same comment on every post and i don't want that in my data
-        comments.extend(
-            [comment.body for comment in post.comments if comment.author != "AutoModerator"])
-
-    comment_data[sub_name] = comments
+        comment_data.extend(
+            [{
+                "subreddit": sub_name,
+                "comment_id": comment.id,
+                "text": comment.body
+            } for comment in post.comments if comment.author != "AutoModerator"]
+        )
 
     # save per iteration just to be safe
     with open("../private/comment_data.json", "w") as f:
