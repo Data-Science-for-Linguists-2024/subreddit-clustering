@@ -18,4 +18,4 @@ for entry in data:
 
 # write json file
 with open(args.out_file, "w") as f:
-    json.dump(data, f, indent=4)
+    json.dump(data, f)
