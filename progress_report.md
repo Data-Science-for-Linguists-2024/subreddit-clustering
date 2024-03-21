@@ -10,3 +10,4 @@ In this first leg of the process, I focused primarily on data collection. I want
 For sharing my data, I want to do something similar to the GUM corpus, i'll distribute the data with the `text` column blanked out, and provide a script to re-fetch the data from reddit using the `comment_id` column, allowing anyone to reconstruct my exact dataset. I also provided a very small sample of the data in [data_samples/comment_data_sample.json](https://github.com/Data-Science-for-Linguists-2024/subreddit-clustering/blob/main/data_samples/comment_data_sample.json) to give an idea of the structure of the data.
 
 ## 2nd Progress report
+This second section was slightly less productive than the previous o

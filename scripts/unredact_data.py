@@ -28,7 +28,7 @@ reddit = praw.Reddit(
 # get all ids from file and make list of fullnames
 ids = [f"t1_{entry["comment_id"]}" for entry in data]
 
-# use list of fullnaes to batch queries and populate dict that maps id to text
+# use list of fullnames to batch queries and populate dict that maps id to text
 id_dict = {}
 for c in tqdm(reddit.info(fullnames=ids), total=len(ids)):
     id_dict[c.id] = c.body
