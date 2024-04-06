@@ -14,7 +14,7 @@ with open(args.in_file, "r") as f:
 
 # blank out text field
 for entry in data:
-    entry["text"] = ""
+    del entry["text"]
 
 # write json file
 with open(args.out_file, "w") as f:
