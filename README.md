@@ -13,8 +13,8 @@ The data used for this project was collected specifically for it, using [PRAW](h
 - [data_samples/](https://github.com/Data-Science-for-Linguists-2024/subreddit-clustering/tree/main/data_samples): directory containing samples of the full data
 - [images/](https://github.com/Data-Science-for-Linguists-2024/subreddit-clustering/tree/main/images): directory containing plot images
 - [notebooks/](https://github.com/Data-Science-for-Linguists-2024/subreddit-clustering/tree/main/notebooks): directory for jupyter notebooks
-    - [data_exploration.ipynb](https://github.com/Data-Science-for-Linguists-2024/subreddit-clustering/blob/main/notebooks/data_exploration.ipynb): initial exploration and cleanup of data
-    - [clustering.ipynb](https://github.com/Data-Science-for-Linguists-2024/subreddit-clustering/blob/main/notebooks/clustering.ipynb): document clustering and analysis
+    - [data_exploration.ipynb](https://github.com/Data-Science-for-Linguists-2024/subreddit-clustering/blob/main/notebooks/data_exploration.ipynb): initial exploration and cleanup of data ([nbviewer](https://nbviewer.org/github/Data-Science-for-Linguists-2024/subreddit-clustering/blob/main/notebooks/data_exploration.ipynb))
+    - [clustering.ipynb](https://github.com/Data-Science-for-Linguists-2024/subreddit-clustering/blob/main/notebooks/clustering.ipynb): document clustering and analysis ([nbviewer](https://nbviewer.org/github/Data-Science-for-Linguists-2024/subreddit-clustering/blob/main/notebooks/clustering.ipynb))
 - [scripts/](https://github.com/Data-Science-for-Linguists-2024/subreddit-clustering/tree/main/scripts): directory for python scripts
     - [scrape_top_subreddits.py](https://github.com/Data-Science-for-Linguists-2024/subreddit-clustering/blob/main/scripts/scrape_top_subreddits.py): script for gathering a list of the top n subreddits
     - [scrape_comments.py](https://github.com/Data-Science-for-Linguists-2024/subreddit-clustering/blob/main/scripts/scrape_comments.py): script for scraping comments from reddit
